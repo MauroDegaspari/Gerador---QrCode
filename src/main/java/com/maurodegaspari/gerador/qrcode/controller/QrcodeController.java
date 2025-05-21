@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.maurodegaspari.gerador.qrcode.dto.GeracaoResponse;
 
 @RestController
-@RequestMapping("/Gerador")
+@RequestMapping("/qrcodegerador")
 public class QrcodeController {
 	
 	@PostMapping
