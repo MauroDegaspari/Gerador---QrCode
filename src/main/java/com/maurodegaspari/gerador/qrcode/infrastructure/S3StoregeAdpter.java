@@ -1,15 +1,17 @@
 package com.maurodegaspari.gerador.qrcode.infrastructure;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-import com.maurodegaspari.gerador.qrcode.ports.StoregePort;
+import com.maurodegaspari.gerador.qrcode.ports.StoragePort;
 
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
-public class S3StoregeAdpter implements StoregePort {
+@Component
+public class S3StoregeAdpter implements StoragePort {
 
 	private final S3Client s3Client;
 	private final String bucketName;
@@ -17,7 +19,7 @@ public class S3StoregeAdpter implements StoregePort {
 	
 	
 	public S3StoregeAdpter(@Value("${aws.s3.region}") String region,
-						   @Value("${aws.s3.bucket.name}") String bucketName) {
+						   @Value("${aws.s3.bucket-name}") String bucketName) {
 		
 		this.region = region;
 		this.bucketName = bucketName;
